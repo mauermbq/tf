@@ -70,11 +70,11 @@ You may download the ready to run whl package from this repo.
 
 build takes a while:
 
-´´´
+```bash
 INFO: Elapsed time: 7041,361s, Critical Path: 318,16s
 INFO: 9289 processes: 9289 local.
 INFO: Build completed successfully, 9904 total actions
-´´´
+```
 
 ## Train Performance
 
@@ -96,4 +96,4 @@ Relation to GPU performance:
 * ~ 1190 examples/sec, ~0,1 sec/batch for an old-timer (940MX)
 * ~ 6000~7000 examples/sec for GTX1070, which is around 9 times increase over recent 6 core i7 of MacBook pro
 
-Conclusion: For real deep learning scenarios you need to add GPU performance somehow from cloud or a workstaion with sufficient GPU power. However, for simple local scenarios it's worth to compile your own CPU optimized version
+Conclusion: For real deep learning scenarios you need to add GPU performance somehow from cloud or a workstaion with sufficient GPU power. However, for simple local scenarios it's worth to compile your own CPU optimized version.
