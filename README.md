@@ -37,16 +37,19 @@ In order to build objc, Bazel requires that you specify an xcode version - this 
 command line tool is selected (in my case Xcode 10.1)
 
 Note, If already ran in a problem, you'll need to run:
-´bazel clean --expunge´
+`bazel clean --expunge`
 
 with '--expunge' the entire working tree will be removed and the server stopped.
 
 ### TF dependencies
 
 Install the TensorFlow pip package dependencies (in my virtual environment, I omit the --user argument):
+
+```bash
 pip install -U pip six numpy wheel mock
 pip install -U keras_applications==1.0.6 --no-deps
 pip install -U keras_preprocessing==1.0.5 --no-deps
+```
 
 ## Build an install
 
@@ -77,9 +80,9 @@ INFO: Build completed successfully, 9904 total actions
 ## Train Performance
 
 I made a simple performance comparison with a common and reproducible lerarning task.
-Use ´utorials/image/cifar10´ form [tensorflow/models](https://github.com/tensorflow/models.git).
+Use `utorials/image/cifar10´`form [tensorflow/models](https://github.com/tensorflow/models.git).
 
-Standard conda tf package performance, by ´python cifar10_train.py´:
+Standard conda tf package performance, by `python cifar10_train.py`:
 
 * ~220 examples/sec; 0.55-0.6 sec/batch)
 
