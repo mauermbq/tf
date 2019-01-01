@@ -33,8 +33,7 @@ My local environment is miniconda env with Python 3.6.6.
 * [Bazel versions](https://github.com/bazelbuild/bazel/releases) - my preference
 * [Bazel homebrew](https://blog.bazel.build/2018/08/22/bazel-homebrew.html)
 
-In order to build objc, Bazel requires that you specify an xcode version - this is usually done automatically by xcode_configure. If that's not working, you can manually specify the xcode version on the command line using the --xcode_version flag or alternatively start Xcode - go to preferences - tab local and take care that you desired 
-command line tool is selected (in my case Xcode 10.1)
+In order to build objc, Bazel requires that you specify your local xcode version - this is usually done automatically by xcode_configure. If that's not working, you can manually specify the xcode version on the command line using the --xcode_version flag or alternatively start Xcode - go to preferences - tab local and take care that you desired command line tool is selected (in my case Xcode 10.1).
 
 Note, If already ran in a problem, you'll need to run:
 `bazel clean --expunge`
