@@ -1,6 +1,6 @@
 # Compile Tensorflow on Mac Mojave (non-CUDA)
 
-The easiest and most straight-forward way of using TensorFlow Serving is with Docker images. However, I compiled tf on my Mac client in order to use it in an anaconda dev environment.
+The easiest and most straight-forward way of using TensorFlow Serving is with Docker images or use some TPU on cloud. However, I compiled tf on my Mac client in order to use it in an anaconda dev environment having the performance the mac HW delivers.
 
 Default Tensorflow of anconda for Mac was compiled with mkl Support only, and produces the follwing warnings:
 tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 FMA.
@@ -33,12 +33,12 @@ My local environment is miniconda env with Python 3.6.6.
 * [Bazel versions](https://github.com/bazelbuild/bazel/releases) - my preference
 * [Bazel homebrew](https://blog.bazel.build/2018/08/22/bazel-homebrew.html)
 
-In order to build objc, Bazel requires that you specify your local xcode version - this is usually done automatically by xcode_configure. If that's not working, you can manually specify the xcode version on the command line using the --xcode_version flag or alternatively start Xcode - go to preferences - tab local and take care that you desired command line tool is selected (in my case Xcode 10.1).
+In order to build objc, Bazel requires that you specify your local xcode version - this is usually done automatically by xcode_configure. If that's not working, you can manually specify the xcode version on the command line using the `--xcode_version` flag or alternatively start Xcode - go to preferences - tab local and take care that you desired command line tool is selected (in my case Xcode 10.1).
 
 Note, If already ran in a problem, you'll need to run:
 `bazel clean --expunge`
 
-with '--expunge' the entire working tree will be removed and the server stopped.
+with `--expunge` the entire working tree will be removed and the server stopped.
 
 ### TF dependencies
 
@@ -79,7 +79,7 @@ INFO: Build completed successfully, 9904 total actions
 ## Train Performance
 
 I made a simple performance comparison with a common and reproducible lerarning task.
-Use `utorials/image/cifar10´`form [tensorflow/models](https://github.com/tensorflow/models.git).
+Use `utorials/image/cifar10`form [tensorflow/models](https://github.com/tensorflow/models.git).
 
 Standard conda tf package performance, by `python cifar10_train.py`:
 
@@ -94,6 +94,6 @@ Amazing: at minimum 3.5 times faster
 Relation to GPU performance:
 
 * ~ 1190 examples/sec, ~0,1 sec/batch for an old-timer (940MX)
-* ~ 6000~7000 examples/sec for GTX1070, which is around 9 times increase over recent 6 core i7 of MacBook pro
+* ~ 6000~7000 examples/sec for GTX1070, which is around 9 times increase over recent 6 core i7 of my MacBook pro
 
 Conclusion: For real deep learning scenarios you need to add GPU performance somehow from cloud or a workstaion with sufficient GPU power. However, for simple local scenarios it's worth to compile your own CPU optimized version.
